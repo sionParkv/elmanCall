@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="16dp"
+    android:layout_gravity="center"
+    android:elevation="8dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/change_modal_background"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/close"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:layout_gravity="end"
+    >
+        <Button
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/cross"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="14dp"
+        android:padding="8dp"
+        android:background="#EAEAEA"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+    >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색어"
+            android:layout_marginHorizontal="8dp"
+            android:textSize="16sp"
+        />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="4dp"
+            android:background="#7E7E7E"
+        />
+
+        <SearchView
+            android:id="@+id/searchQuery"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:textColor="#000000"
+        />
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/search"
+        />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+    >
+        <LinearLayout
+            android:id="@+id/container"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="확인"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="#011168"
+        android:layout_gravity="center_horizontal"
+    />
+
+</LinearLayout>

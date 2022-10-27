@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context=".ui.login.LoginActivity"
+>
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:paddingTop="80dp"
+        android:layout_height="235dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/logo"
+    />
+
+    <EditText
+        android:id="@+id/editTextTextID"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/edittext_border"
+        android:paddingStart="16dp"
+        android:hint="아이디"
+    />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/edittext_border"
+        android:layout_marginTop="10dp"
+        android:paddingStart="16dp"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+    />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="20sp"
+        android:textColor="#00085C"
+        android:fontFamily="@font/nanumsquareb"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/buttonclear"
+    />
+</LinearLayout>
