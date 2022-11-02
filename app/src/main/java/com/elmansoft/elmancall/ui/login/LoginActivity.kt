@@ -78,7 +78,9 @@ class LoginActivity : AppCompatActivity() {
             })
         }
 
-        if (userID?.isNotEmpty() == true && userPW?.isNotEmpty() == true) {
+        if (number.isNotEmpty()) {
+            requestAutoUserInfo(number)
+        } else if (userID?.isNotEmpty() == true && userPW?.isNotEmpty() == true) {
             button.performClick()
         }
     }
@@ -111,6 +113,29 @@ class LoginActivity : AppCompatActivity() {
                 editor.putString("userid", userID)
                 editor.putString("userpw", userPW)
                 editor.apply()
+
+                startActivity(Intent(self, MainActivity::class.java))
+                finish()
+            }
+        })
+    }
+
+    fun requestAutoUserInfo(tel: String) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://api.elmansoft.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val userAutoLoginService: UserAutoLoginService = retrofit.create(UserAutoLoginService::class.java)
+        val self = this
+
+        userAutoLoginService.request(tel).enqueue(object : Callback<UserInfoDTO>{
+            override fun onFailure(call: Call<UserInfoDTO>, t: Throwable){
+                //
+            }
+            override fun onResponse(call: Call<UserInfoDTO>, response: Response<UserInfoDTO>) {
+                val info = response.body()
+                Log.d("test",info.toString())
+                UserInfo.getInstance().init(info, tel)
 
                 startActivity(Intent(self, MainActivity::class.java))
                 finish()

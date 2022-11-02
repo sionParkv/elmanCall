@@ -82,7 +82,7 @@ class ListFragment : Fragment() {
             try {
                 cursor = resolver?.query(callLogUri, null, null, null, null)
                 if (cursor != null) {
-                    var maxcount = 100
+                    var maxcount = 999
                     while (cursor.moveToNext()) {
                         if (--maxcount < 0) {
                             break

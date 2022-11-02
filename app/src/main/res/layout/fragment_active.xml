@@ -33,6 +33,7 @@
             android:layout_width="75dp"
             android:layout_height="40dp"
             android:layout_marginStart="-85dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/nanumsquareb"
             android:gravity="center|left"
@@ -42,7 +43,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.322"
-            app:layout_constraintStart_toEndOf="@+id/imageView9" />
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -104,36 +106,38 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="244dp"
+            android:layout_marginBottom="248dp"
             android:fontFamily="@font/nanumsquarer"
             android:text="ELMAN CALL"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="244dp"
+            android:layout_marginBottom="216dp"
             android:text="적용을 위하여"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.642"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/textView26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="224dp"
+            android:layout_marginBottom="188dp"
             android:text="활성화를 켜주세요."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.466" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

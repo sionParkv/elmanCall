@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             setTurnScreenOn(true)
             val keyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
             keyguardManager.requestDismissKeyguard(this, null)
-            startForegroundService(Intent(this, PopupService::class.java))
+//            startForegroundService(Intent(this, PopupService::class.java))
         }
     }
 
@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
 
             val result = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (Settings.canDrawOverlays(this)) {
-                    startService(Intent(this, PopupService::class.java))
+//                    startService(Intent(this, PopupService::class.java))
                 } else {
                     Toast.makeText(this, "화면 오버레이 기능이 비활성화 되어 발신자 번호 표시 서비스를 이용하실 수 없습니다", Toast.LENGTH_SHORT).show()
                 }

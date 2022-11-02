@@ -96,7 +96,6 @@
 
         <service
             android:name=".PopupService"
-            android:enabled="true"
             android:exported="true"
             android:permission="android.permission.BIND_INCALL_SERVICE">
         </service>

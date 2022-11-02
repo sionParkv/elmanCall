@@ -83,9 +83,8 @@ class ActiveFragment : Fragment() {
         _binding?.textView22?.text = info?.spjangnm;
         _binding?.textView23?.text = info?.pernm;
 
-        Picasso.with(context).load("https://api.elmansoft.com/etc/getCustImage.php?database=${info?.custcd}&custcd=${info?.custcd}&spjangcd=${info?.spjangcd}").into(_binding?.imageView9);
-
-        check()
+        Picasso.with(context).load("https://api.elmansoft.com/etc/getCustImage.php?database=${info?.custcd}&custcd=${info?.custcd}&spjangcd=${info?.spjangcd}")
+            .into(_binding?.imageView9)
 
         return root
     }
@@ -142,49 +141,9 @@ class ActiveFragment : Fragment() {
             _binding?.textView2?.setTextColor(Color.parseColor("#01418C"))
 
             isActive = true
-
-            active()
         }
     }
 
-    /*
-    private fun active() {
-        val manager: PackageManager? = activity?.packageManager
-        val component = ComponentName(activity?.applicationContext!!, IncomingCallActivity::class.java)
-        manager?.setComponentEnabledSetting(
-            component,
-            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-            PackageManager.DONT_KILL_APP
-        )
-
-        val roleManager: RoleManager = activity?.getSystemService(AppCompatActivity.ROLE_SERVICE) as RoleManager
-        if (!roleManager.isRoleHeld(RoleManager.ROLE_DIALER)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val intent = Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER)
-                intent.putExtra(
-                    TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME,
-                    activity?.packageName
-                )
-                startActivity(intent)
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                val intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_DIALER)
-                activity?.startActivityIfNeeded(intent, 25)
-            }
-        }
-    }
-
-    private fun deActive() {
-        val manager: PackageManager? = activity?.packageManager
-        val component = ComponentName(activity?.applicationContext!!, IncomingCallActivity::class.java)
-        manager?.setComponentEnabledSetting(
-            component,
-            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
-    }
-    */
     private fun active() {
         startForegroundService(this.requireContext(), Intent(this.context, PopupService::class.java))
     }
@@ -198,7 +157,7 @@ class ActiveFragment : Fragment() {
         check()
     }
 
-    val statusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+    private val statusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(p0: Context?, p1: Intent?) {
             check()
         }

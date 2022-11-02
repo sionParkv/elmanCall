@@ -1,21 +1,16 @@
 package com.elmansoft.elmancall
 
 import android.annotation.SuppressLint
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.Service
+import android.app.*
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
 import android.telephony.TelephonyManager
 import android.text.TextUtils
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -52,6 +47,7 @@ class PopupService() : Service() {
         return null
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     override fun onCreate() {
         super.onCreate()
         Log.d(TAG, "override fun onCreate()")
@@ -62,13 +58,26 @@ class PopupService() : Service() {
 
         (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(channel)
 
+        val intented = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            intented,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
         notification = NotificationCompat.Builder(this, TAG)
             .setContentText("")
             .setContentText("")
-            .setSmallIcon(R.drawable.lolo4)
+            .setSmallIcon(R.drawable.ic_stat_name)
+            .setContentIntent(pendingIntent)
             .build()
 
         startForeground(1, notification)
+
 
         val mInflater = LayoutInflater.from(this).inflate(R.layout.activity_popup_call, null, false)
         titleContainer = mInflater.findViewById<View>(R.id.activity_popup_call) as LinearLayout
